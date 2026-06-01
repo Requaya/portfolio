@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PressNetwork | Site d'actualités | Requaya Elazizi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        :root {
+            --bg-primary: linear-gradient(135deg, #fdf2f8 0%, #f3e8ff 100%);
+            --bg-card: #ffffff;
+            --text-primary: #1e1b4b;
+            --text-secondary: #4c1d95;
+            --text-muted: #6b21a5;
+            --border-light: #fbcfe8;
+            --tag-bg: #fce7f3;
+            --accent: #ec4899;
+            --shadow: rgba(236, 72, 153, 0.1);
+            --code-bg: #f8f9fc;
+            --code-border: #e2e8f0;
+        }
+
+        body.dark {
+            --bg-primary: linear-gradient(135deg, #1a1025 0%, #2d1b3d 100%);
+            --bg-card: #2d1b3d;
+            --text-primary: #fdf2f8;
+            --text-secondary: #f9a8d4;
+            --text-muted: #d8b4fe;
+            --border-light: #4c1d95;
+            --tag-bg: #3b1e5e;
+            --code-bg: #1e1a2f;
+            --code-border: #4c1d95;
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-card);
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 12px var(--shadow);
+            transition: 0.3s;
+        }
+        .back-link:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ec4899, #a855f7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .project-badge {
+            display: inline-block;
+            background: var(--tag-bg);
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .section {
+            background: var(--bg-card);
+            border-radius: 28px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 35px -12px var(--shadow);
+            border: 1px solid var(--border-light);
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 1rem;
+        }
+        .section h2 i {
+            color: var(--accent);
+            font-size: 1.6rem;
+        }
+
+        .grid-2cols {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .info-card {
+            background: var(--bg-primary);
+            border-radius: 20px;
+            padding: 1.2rem;
+            border: 1px solid var(--border-light);
+        }
+        .info-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--accent);
+        }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+        .tech-item {
+            background: var(--tag-bg);
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        pre {
+            background: var(--code-bg);
+            border: 1px solid var(--code-border);
+            border-radius: 16px;
+            padding: 1.2rem;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            margin: 1rem 0;
+        }
+        .demo-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            justify-content: center;
+        }
+        .demo-video, .demo-image {
+            flex: 1;
+            min-width: 280px;
+            background: var(--bg-primary);
+            border-radius: 24px;
+            padding: 1rem;
+            border: 1px solid var(--border-light);
+            text-align: center;
+        }
+        video, img {
+            max-width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px var(--shadow);
+        }
+        .btn-github {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #1e1b4b;
+            color: white;
+            padding: 0.7rem 1.4rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: 0.3s;
+        }
+        body.dark .btn-github {
+            background: #a855f7;
+        }
+        .btn-github:hover {
+            transform: translateY(-3px);
+            background: #ec4899;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+        }
+        @media (max-width: 700px) {
+            h1 { font-size: 1.8rem; }
+            .section { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour au portfolio</a>
+    
+    <h1>📰 PressNetwork – Site d'actualités</h1>
+    <div class="project-badge"><i class="fas fa-code"></i> Projet Front-End | HTML/CSS/JS/jQuery/Ajax | Mai 2026</div>
+
+    <!-- Présentation -->
+    <div class="section">
+        <h2><i class="fas fa-info-circle"></i> Présentation du projet</h2>
+        <p><strong>PressNetwork</strong> est un site d'information dynamique permettant aux utilisateurs de consulter les dernières actualités, de lire des articles complets et de regarder des reportages vidéo. Le projet a été développé dans le cadre d'un exercice de développement web front-end.</p>
+        <div class="grid-2cols" style="margin-top: 1.5rem;">
+            <div class="info-card"><h3><i class="fas fa-user"></i> Rôle</h3><p>Développeuse Front-End</p></div>
+            <div class="info-card"><h3><i class="fas fa-calendar"></i> Période</h3><p>Mai 2026</p></div>
+            <div class="info-card"><h3><i class="fas fa-tools"></i> Outils</h3><p>VS Code, Git, navigateurs modernes</p></div>
+        </div>
+    </div>
+
+    <!-- Objectif -->
+    <div class="section">
+        <h2><i class="fas fa-bullseye"></i> Objectif</h2>
+        <p>Créer un site web complet d'actualités comprenant trois pages principales :</p>
+        <ul style="margin-left: 1.8rem; margin-top: 0.8rem;">
+            <li>✔️ Page d'accueil avec aperçu des dernières nouvelles, menu thématique, titres du jour et reportages.</li>
+            <li>✔️ Page d'article avec titre, image, corps formaté (citations, etc.), liens de partage sociaux et section commentaires.</li>
+            <li>✔️ Page vidéo avec lecteur vidéo central, partage sociaux et commentaires.</li>
+        </ul>
+    </div>
+
+    <!-- Stack technique -->
+    <div class="section">
+        <h2><i class="fas fa-cogs"></i> Stack technique & concepts appliqués</h2>
+        <div class="tech-stack">
+            <span class="tech-item">🔹 HTML5 / CSS3 (responsive)</span>
+            <span class="tech-item">🔹 JavaScript (ES6)</span>
+            <span class="tech-item">🔹 jQuery & Ajax (chargement dynamique)</span>
+            <span class="tech-item">🔹 Design adapté (mobile first)</span>
+        </div>
+        <p style="margin-top: 1rem;">Utilisation d'Ajax pour charger les articles et vidéos sans recharger la page, et jQuery pour manipuler le DOM et gérer les événements. Mise en place d'une section commentaires interactive.</p>
+    </div>
+
+    <!-- Fonctionnalités clés -->
+    <div class="section">
+        <h2><i class="fas fa-laptop-code"></i> Fonctionnalités clés</h2>
+        <div class="grid-2cols">
+            <div class="info-card">
+                <h3><i class="fas fa-home"></i> Page d'accueil</h3>
+                <ul style="margin-left: 1.2rem;">
+                    <li>Logo et menu thématique (politique, sport, tech, etc.)</li>
+                    <li>Affichage des derniers titres et un aperçu des actualités</li>
+                    <li>Section reportages avec vignettes vidéo</li>
+                    <li>Pied de page complet (liens, contact, copyright)</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3><i class="fas fa-file-alt"></i> Page article</h3>
+                <ul style="margin-left: 1.2rem;">
+                    <li>Titre principal, image descriptive, contenu formaté (citations, listes)</li>
+                    <li>Liens de partage (Facebook, Twitter, LinkedIn)</li>
+                    <li>Section commentaires avec affichage et ajout de commentaires</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3><i class="fas fa-video"></i> Page vidéo</h3>
+                <ul style="margin-left: 1.2rem;">
+                    <li>Vidéo principale au centre (intégration YouTube ou locale)</li>
+                    <li>Liens de partage sociaux</li>
+                    <li>Commentaires utilisateurs</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Démonstration (vidéo + image du code) -->
+    <div class="section">
+        <h2><i class="fas fa-video"></i> Démonstration</h2>
+        <div class="demo-container">
+            <div class="demo-video">
+                <h3><i class="fas fa-play-circle"></i> Vidéo de démonstration</h3>
+                <video controls autoplay muted width="100%" poster="poster-pressnetwork.jpg">
+                    <source src="Video Project html 777mp4.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la vidéo.
+                </video>
+               </div>
+            <div class="demo-image">
+                <h3><i class="fas fa-code"></i> Extrait du code source</h3>
+                <img src="Capture d’écran html.png" alt="Capture du code (Ajax, jQuery)" style="width:100%;">
+              </div>
+        </div>
+    </div>
+
+    <!-- Aperçu du code -->
+    <div class="section">
+        <h2><i class="fas fa-code"></i> Aperçu du code (extrait)</h2>
+        <p>Chargement dynamique d’un article avec jQuery et Ajax :</p>
+        <pre><code>$.ajax({
+    url: 'articles/article1.json',
+    method: 'GET',
+    dataType: 'json',
+    success: function(data) {
+        $('#article-title').text(data.titre);
+        $('#article-content').html(data.contenu);
+        $('#article-image').attr('src', data.image);
+    },
+    error: function() {
+        console.log('Erreur de chargement');
+    }
+});</code></pre>
+        <p>La section commentaires stocke les données localement (ou envoie vers un serveur).</p>
+    </div>
+
+    <!-- Bilan personnel -->
+    <div class="section">
+        <h2><i class="fas fa-chart-line"></i> Bilan personnel & compétences acquises</h2>
+        <p><strong>Défis techniques :</strong> Maîtriser l’asynchronisme avec Ajax pour un chargement fluide des articles, et formater le contenu des articles (citations, images) pour un rendu professionnel.</p>
+        <p><strong>Compétences validées :</strong></p>
+        <ul style="margin-left: 1.8rem;">
+            <li>Intégration HTML/CSS responsive (Flexbox/Grid).</li>
+            <li>Manipulation du DOM avec jQuery.</li>
+            <li>Communication asynchrone avec Ajax (fichiers JSON ou API).</li>
+            <li>Gestion des événements et des formulaires (commentaires).</li>
+        </ul>
+        <p><strong>Améliorations futures :</strong> Connecter la section commentaires à une base de données réelle (PHP/MySQL) et ajouter une barre de recherche.</p>
+    </div>
+
+    <!-- Liens -->
+    <div class="section" style="text-align: center;">
+        <h2><i class="fab fa-github"></i> Ressources</h2>
+        <a href="#" class="btn-github"><i class="fab fa-github"></i> Dépôt GitHub (code source)</a>
+        <p style="margin-top: 1rem;">*Lien à insérer* – Version en ligne : <a href="#" style="color: var(--accent);">PressNetwork démo</a></p>
+    </div>
+
+    <footer>
+        <p>© 2026 Requaya Elazizi – Projet Front-End PressNetwork</p>
+    </footer>
+</div>
+
+<script>
+    // Récupérer le thème sauvegardé (cohérence avec le portfolio)
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') document.body.classList.add('dark');
+</script>
+</body>
+</html>

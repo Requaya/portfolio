@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet C | Automate de Vente Intelligent | Requaya Elazizi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        :root {
+            --bg-primary: linear-gradient(135deg, #fdf2f8 0%, #f3e8ff 100%);
+            --bg-card: #ffffff;
+            --text-primary: #1e1b4b;
+            --text-secondary: #4c1d95;
+            --text-muted: #6b21a5;
+            --border-light: #fbcfe8;
+            --tag-bg: #fce7f3;
+            --accent: #ec4899;
+            --shadow: rgba(236, 72, 153, 0.1);
+            --code-bg: #f8f9fc;
+            --code-border: #e2e8f0;
+        }
+
+        body.dark {
+            --bg-primary: linear-gradient(135deg, #1a1025 0%, #2d1b3d 100%);
+            --bg-card: #2d1b3d;
+            --text-primary: #fdf2f8;
+            --text-secondary: #f9a8d4;
+            --text-muted: #d8b4fe;
+            --border-light: #4c1d95;
+            --tag-bg: #3b1e5e;
+            --code-bg: #1e1a2f;
+            --code-border: #4c1d95;
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-card);
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 12px var(--shadow);
+            transition: 0.3s;
+        }
+        .back-link:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateX(-5px);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ec4899, #a855f7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .project-badge {
+            display: inline-block;
+            background: var(--tag-bg);
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .section {
+            background: var(--bg-card);
+            border-radius: 28px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 35px -12px var(--shadow);
+            border: 1px solid var(--border-light);
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 1rem;
+        }
+        .section h2 i {
+            color: var(--accent);
+            font-size: 1.6rem;
+        }
+
+        .grid-2cols {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .info-card {
+            background: var(--bg-primary);
+            border-radius: 20px;
+            padding: 1.2rem;
+            border: 1px solid var(--border-light);
+        }
+        .info-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--accent);
+        }
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+        .tech-item {
+            background: var(--tag-bg);
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        pre {
+            background: var(--code-bg);
+            border: 1px solid var(--code-border);
+            border-radius: 16px;
+            padding: 1.2rem;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            margin: 1rem 0;
+            color: var(--text-primary);
+        }
+        code {
+            font-family: 'Courier New', monospace;
+        }
+        .demo-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            justify-content: center;
+        }
+        .demo-video, .demo-image {
+            flex: 1;
+            min-width: 280px;
+            background: var(--bg-primary);
+            border-radius: 24px;
+            padding: 1rem;
+            border: 1px solid var(--border-light);
+            text-align: center;
+        }
+        .demo-video h3, .demo-image h3 {
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        video, img {
+            max-width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 10px 20px var(--shadow);
+            border: 1px solid var(--border-light);
+        }
+        .btn-github {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #1e1b4b;
+            color: white;
+            padding: 0.7rem 1.4rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: 0.3s;
+        }
+        body.dark .btn-github {
+            background: #a855f7;
+        }
+        .btn-github:hover {
+            transform: translateY(-3px);
+            background: #ec4899;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+        }
+        @media (max-width: 700px) {
+            h1 { font-size: 1.8rem; }
+            .section { padding: 1.5rem; }
+            .container { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour au portfolio</a>
+    
+    <h1>☕ Automate de Vente Intelligent</h1>
+    <div class="project-badge"><i class="fas fa-code"></i> Projet académique | Langage C | Mai 2026</div>
+
+    <!-- Présentation -->
+    <div class="section">
+        <h2><i class="fas fa-info-circle"></i> Présentation du projet</h2>
+        <p>Dans le cadre du module <strong>Programmation Procédurale</strong>, j'ai développé un simulateur de distributeur automatique en langage C. Ce programme simule l'interaction complète entre un client (achat de boissons) et un administrateur (gestion de la machine, des stocks et des recettes).</p>
+        <div class="grid-2cols" style="margin-top: 1.5rem;">
+            <div class="info-card"><h3><i class="fas fa-user"></i> Rôle</h3><p>Développeur Backend / Algorithmique</p></div>
+            <div class="info-card"><h3><i class="fas fa-calendar"></i> Période</h3><p>Mai 2026</p></div>
+            <div class="info-card"><h3><i class="fas fa-tools"></i> Outils</h3><p>Langage C, GCC, VS Code, Git</p></div>
+        </div>
+    </div>
+
+    <!-- Objectif général -->
+    <div class="section">
+        <h2><i class="fas fa-bullseye"></i> Objectif</h2>
+        <p>Concevoir un programme simulant un distributeur automatique intelligent permettant :</p>
+        <ul style="margin-left: 1.8rem; margin-top: 0.8rem;">
+            <li>✔️ Aux clients d’acheter des boissons via une interface simple</li>
+            <li>✔️ À un administrateur de gérer les ventes et les paramètres via un espace sécurisé</li>
+        </ul>
+    </div>
+
+    <!-- Stack technique -->
+    <div class="section">
+        <h2><i class="fas fa-cogs"></i> Stack technique & concepts appliqués</h2>
+        <div class="tech-stack">
+            <span class="tech-item">🔹 Logique de contrôle : do...while, switch</span>
+            <span class="tech-item">🔹 Persistance : fichiers (FILE*, fopen, fwrite, fscanf)</span>
+            <span class="tech-item">🔹 Sécurité : hachage simple / stockage auth.txt</span>
+            <span class="tech-item">🔹 Algorithmique : rendu de monnaie, synchronisation</span>
+        </div>
+        <p style="margin-top: 1rem;">Mise en œuvre d'une gestion rigoureuse des types flottants pour les transactions monétaires et d'une architecture modulaire (séparation logique métier / interface / accès aux données).</p>
+    </div>
+
+    <!-- Fonctionnalités clés -->
+    <div class="section">
+        <h2><i class="fas fa-laptop-code"></i> Fonctionnalités clés</h2>
+        <div class="grid-2cols">
+            <div class="info-card">
+                <h3><i class="fas fa-user-circle"></i> Expérience Client</h3>
+                <ul style="margin-left: 1.2rem;">
+                    <li>Menu interactif avec choix de boissons</li>
+                    <li>Insertion de pièces (0.10€, 0.20€, 0.50€, 1€, 2€) avec validation</li>
+                    <li>Calcul du montant restant / rendu de monnaie optimal</li>
+                    <li>Incémentation des compteurs et mise à jour du chiffre d'affaires</li>
+                    <li>Sauvegarde automatique dans <code>vente.dat</code></li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3><i class="fas fa-lock"></i> Back-office Administrateur</h3>
+                <ul style="margin-left: 1.2rem;">
+                    <li>Accès sécurisé par code 999 + authentification (login/mot de passe)</li>
+                    <li>Premier lancement : création des identifiants (stockés dans <code>auth.txt</code>)</li>
+                    <li>Consultation du chiffre d'affaires global et des statistiques par produit</li>
+                    <li>Réinitialisation des données / modification du mot de passe</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- DÉMONSTRATION : VIDÉO + IMAGE DU CODE -->
+    <div class="section">
+        <h2><i class="fas fa-video"></i> Démonstration</h2>
+        <div class="demo-container">
+            <!-- Vidéo d'exécution -->
+            <div class="demo-video">
+                <h3><i class="fas fa-play-circle"></i> Vidéo de démonstration</h3>
+                <video controls autoplay muted width="100%" poster="poster-demo.jpg">
+                    <source src="Video Project de c.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la vidéo. <a href="demo-automate.mp4">Télécharger la vidéo</a>
+                </video>
+               
+            </div>
+            <!-- Image du code source -->
+            <div class="demo-image">
+                <h3><i class="fas fa-code"></i> Extrait du code source</h3>
+                <img src="Capture d’écran cod c.png" alt="Capture d'écran du code C" style="width:100%;">
+              
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Aperçu du code (texte) -->
+    <div class="section">
+        <h2><i class="fas fa-code"></i> Aperçu du code (extrait)</h2>
+        <p>Fonction de rendu de monnaie (algorithmique gloutonne) :</p>
+        <pre><code>void rendreMonnaie(float montant) {
+    int cents = (int)(montant * 100);
+    int pieces[] = {200, 100, 50, 20, 10};
+    const char *noms[] = {"2€", "1€", "0.50€", "0.20€", "0.10€"};
+    printf("Monnaie rendue :\n");
+    for(int i = 0; i < 5; i++) {
+        int nb = cents / pieces[i];
+        if(nb > 0) {
+            printf("%d x %s\n", nb, noms[i]);
+            cents %= pieces[i];
+        }
+    }
+}</code></pre>
+        <p><strong>Bonus :</strong> L'ensemble du code source est organisé en modules : <code>main.c</code>, <code>vente.c</code>, <code>admin.c</code>, <code>fichiers.c</code>.</p>
+    </div>
+
+    <!-- Bilan personnel -->
+    <div class="section">
+        <h2><i class="fas fa-chart-line"></i> Bilan personnel & compétences acquises</h2>
+        <p><strong>Défis techniques :</strong> La persistance des données a été le challenge majeur : synchroniser les écritures dans <code>vente.dat</code> et <code>auth.txt</code> sans corruption, tout en gérant les accès concurrents (lecture/écriture).</p>
+        <p><strong>Compétences validées :</strong></p>
+        <ul style="margin-left: 1.8rem;">
+            <li>Manipulation avancée des fichiers en C (flux binaires et textes).</li>
+            <li>Rigueur financière : gestion des flottants pour les euros (conversion en centimes).</li>
+            <li>Conception logicielle modulaire et séparation des responsabilités.</li>
+        </ul>
+        <p><strong>Améliorations futures :</strong> Rendre le programme totalement dynamique (ajout/suppression de boissons via fichier de configuration externe) pour éviter la recompilation.</p>
+    </div>
+
+    <!-- Liens -->
+    <div class="section" style="text-align: center;">
+        <h2><i class="fab fa-github"></i> Ressources</h2>
+        <a href="#" class="btn-github"><i class="fab fa-github"></i> Dépôt GitHub (code source + fichiers .dat/.txt)</a>
+        <p style="margin-top: 1rem; font-size: 0.85rem;">*Lien vers le dépôt à insérer* — Schéma de la structure des fichiers disponible sur demande.</p>
+    </div>
+
+    <footer>
+        <p>© 2026 Requaya Elazizi – Projet réalisé dans le cadre de la formation Ingénierie Informatique</p>
+    </footer>
+</div>
+
+<script>
+    // Thème sombre/clair (synchronisé avec le portfolio)
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') document.body.classList.add('dark');
+</script>
+</body>
+</html>
